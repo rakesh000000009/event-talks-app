@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BigQuery Release Notes Hub</title>
+    <meta name="description" content="A premium real-time feed tracking Google BigQuery release notes, features, issues, and deprecations with custom filters and Twitter sharing.">
+    <!-- Favicon link (optional) -->
+    <link rel="icon" type="image/png" href="https://img.icons8.com/color/48/google-cloud.png">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="nav-container">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="12" x2="2" y2="12"></line>
+                        <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
+                        <line x1="6" y1="16" x2="6.01" y2="16"></line>
+                        <line x1="10" y1="16" x2="10.01" y2="16"></line>
+                    </svg>
+                </div>
+                <h1 class="logo-title">BigQuery Releases</h1>
+            </div>
+            
+            <button id="refresh-btn" class="refresh-btn" title="Fetch latest release notes">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M23 4v6h-6"></path>
+                    <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                </svg>
+                Refresh Feed
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        
+        <!-- Hero Title -->
+        <section class="hero-section">
+            <span class="hero-tag">Live Feed</span>
+            <h2>BigQuery Release Notes Hub</h2>
+            <p class="hero-description">
+                Stay updated with the latest features, enhancements, announcements, and issues in Google Cloud BigQuery. Select updates to share them on Twitter/X instantly.
+            </p>
+        </section>
+
+        <!-- Controls (Search + Filters) -->
+        <section class="controls-container">
+            <div class="search-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" id="search-input" class="search-input" placeholder="Search by date, keyword, feature description, or type...">
+            </div>
+
+            <div class="filter-wrapper">
+                <span class="filter-label">Filter:</span>
+                <div id="filter-pills" class="filter-wrapper">
+                    <!-- Dynamic Filter Pills Rendered by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Metadata / Counts -->
+        <section class="results-meta">
+            <div>
+                Showing <strong id="match-count">0</strong> of <span id="total-count">0</span> updates
+            </div>
+            <div>
+                Source: <a href="https://docs.cloud.google.com/feeds/bigquery-release-notes.xml" target="_blank" style="color: var(--accent-blue); text-decoration: none; border-bottom: 1px dotted;">Google Cloud Feed</a>
+            </div>
+        </section>
+
+        <!-- Releases Grid -->
+        <section id="feed-grid" class="feed-grid">
+            <!-- Dynamic Cards Rendered by JS -->
+            <div class="skeleton-loader">
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 BigQuery Release Notes Hub. Powered by Python Flask &amp; Gemini. Built for speed and visual excellence.</p>
+    </footer>
+
+    <!-- App Script -->
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
